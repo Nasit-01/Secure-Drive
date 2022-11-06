@@ -1,0 +1,33 @@
+.info-drive {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font: 20px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  line-height: 1.8;
+}
+
+.margin {
+  margin-bottom: 45px;
+}
+
+.name-footer {
+  display: flex;
+  background: #2f2f2f;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: -450px;
+  height: 17rem;
+}
+
+.name-footer-item > p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pictures{
+  border-radius: 50%;
+}

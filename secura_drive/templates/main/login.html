@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title%}Login{% endblock title %}
+{% block content%}
+<section class="login">
+  <div class="login--wrap clearfix">
+    <div class="row clearfix">
+      <div class="col col-6 login--l">
+        <div class="title"><span class="text">Login</span></div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style = "margin-left: 50px ; color: #e84a5f">{{ message }} </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="login--body">
+          <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <label>
+              <div class="label">Username</div>
+              <input type="text" name="username" required />
+            </label>
+            <label>
+              <div class="label">Password</div>
+              <input type="password" name="password" required />
+            </label>
+            <div class="sbmt">
+              <button onclick="capture_inst()" class="sbmt--btn">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col col-6 login--s">
+        <div class="title"><span class="text">Signup</span></div>
+        <div class="login--body">
+          <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col">
+                <label>
+                  <div class="label">First Name</div>
+                  <input type="text" name="first_name" required />
+                </label>
+              </div>
+              <div class="col">
+                <label>
+                  <div class="label">Last Name</div>
+                  <input type="text" name="last_name" required />
+                </label>
+              </div>
+            </div>
+            <label>
+              <div class="label">Username</div>
+              <input type="text" name="username" required />
+            </label>
+            <label>
+              <div class="label">Email address</div>
+              <input type="email" name="email" required/>
+            </label>
+            <div class="row">
+              <div class="col">
+                <label>
+                  <div class="label">Password</div>
+                  <input type="password" name="password" minlength="8" required />
+                </label>
+              </div>
+              <div class="col">
+                <label>
+                  <div class="label">Confirm password</div>
+                  <input type="password" minlength="8" required />
+                </label>
+              </div>
+            </div>
+            <div class="sbmt">
+              <button onclick="capture_inst()" class="sbmt--btn">Signup</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function capture_inst() {
+    alert("Press Space to capture image and Esc to save the image");
+  }
+</script>
+{% endblock content%}
